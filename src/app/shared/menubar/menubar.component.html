@@ -1,0 +1,16 @@
+<p-sidebar [(visible)]="sidebarVisible" >
+  <p-panelMenu [model]="menuBarItems" [style]="{'width':'280px'}"></p-panelMenu>
+</p-sidebar>
+<p-menubar>
+  <ng-template pTemplate="start">
+    <p-button
+      styleClass="p-button-raised p-button-text p-button-danger"
+      (click)="sidebarVisible = true"
+      icon="pi pi-align-justify"
+    ></p-button>
+    <img src="/assets/img/menubar/logoGeociudad.png" height="40" class="mr-2" />
+  </ng-template>
+  <ng-template pTemplate="end">
+    <img src="/assets/img/menubar/mvcs.png" height="40" class="mr-2" />
+  </ng-template>
+</p-menubar>

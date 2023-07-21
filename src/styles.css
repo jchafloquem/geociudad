@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.panel-result {
+  cursor: pointer;
+  margin: 2px 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 25px;
+  display: flex;
+  align-items: center;
+}
+.panel-result:hover,
+.panel-result:focus {
+  color: orange;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.spacer {
+  flex: 1 1 auto;
+}
+

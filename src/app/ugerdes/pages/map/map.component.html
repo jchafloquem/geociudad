@@ -1,0 +1,36 @@
+<!-- Geovisorr -->
+<div #mapViewNode></div>
+<!-- <div class="panel-container">
+  <div class="panel-side esri-widget">
+  <h3>CAPITALES DE DISTRITO</h3>
+  <ul id="nyc_graphics">
+    <li>Cargando....&hellip;</li>
+  </ul>
+</div>
+<div id="sceneDiv"></div>
+</div> -->
+<!-- <button (click)="onListClickHandler2('0')">probar</button>
+<button (click)="gg()">probar</button> -->
+<p-tabView class="panel-side2" [ngClass]="{ 'hidden-side2': !toogle }">
+  <p-tabPanel header="U.C.P." class="panel-side23">
+    <div
+      *ngFor="let item of lis; let index = index"
+      class="panel-result2 textView"
+      (click)="onListClickHandler2(index.toString())"
+
+    >
+      {{ item.attributes.nombre_centropoblado }}
+    </div>
+  </p-tabPanel>
+  <p-tabPanel header="Tematicas"> </p-tabPanel>
+  <p-tabPanel header="Capas">
+    <p></p>
+  </p-tabPanel>
+</p-tabView>
+<div
+  class="panel-close"
+  (click)="toogle = !toogle"
+  [ngClass]="{ 'panel-close-side2': toogle }"
+>
+  {{ toogle ? "X" : ">" }}
+</div>
