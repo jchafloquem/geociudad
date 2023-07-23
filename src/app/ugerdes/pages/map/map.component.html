@@ -2,35 +2,65 @@
 <div #mapViewNode></div>
 <!-- <div class="panel-container">
   <div class="panel-side esri-widget">
-  <h3>CAPITALES DE DISTRITO</h3>
-  <ul id="nyc_graphics">
-    <li>Cargando....&hellip;</li>
-  </ul>
-</div>
-<div id="sceneDiv"></div>
+    <h3>CAPITALES DE DISTRITO</h3>
+    <ul id="nyc_graphics">
+      <li>Cargando....&hellip;</li>
+    </ul>
+  </div>
+  <div id="sceneDiv"></div>
 </div> -->
 <!-- <button (click)="onListClickHandler2('0')">probar</button>
 <button (click)="gg()">probar</button> -->
 <p-tabView class="panel-side2" [ngClass]="{ 'hidden-side2': !toogle }">
   <p-tabPanel header="U.C.P." class="panel-side23">
-    <div
-      *ngFor="let item of lis; let index = index"
-      class="panel-result2 textView"
-      (click)="onListClickHandler2(index.toString())"
 
-    >
+    <span class="p-input-icon-left p-2 w-full">
+      <i class="pi pi-search"></i>
+      <input class="p-inputtext-sm w-full" type="text" pInputText [(ngModel)]="searchTerm" (keyup)="onSearch()"
+        placeholder="Buscar por nombre">
+    </span>
+
+
+
+    <div *ngFor="let item of filteredArray; let index = index" class="panel-result2 textView"
+      (click)="onListClickHandler2(index.toString())">
       {{ item.attributes.nombre_centropoblado }}
     </div>
   </p-tabPanel>
-  <p-tabPanel header="Tematicas"> </p-tabPanel>
-  <p-tabPanel header="Capas">
-    <p></p>
+  <p-tabPanel header="Tematicas" class="panel-side23">
+
+  </p-tabPanel>
+  <p-tabPanel header="Capas" class="panel-side23">
+    <div *ngFor="let layer of layers">
+      <button class="bottonCapa" (click)="toggleLayerVisibility(layer)">
+        <div> {{ layer.title }} </div>
+        <div *ngIf="layer.visible">
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
+            <path
+              d="M480.118-319Q556-319 609-372.118q53-53.117 53-129Q662-577 608.882-630q-53.117-53-129-53Q404-683 351-629.882q-53 53.117-53 129Q298-425 351.118-372q53.117 53 129 53ZM480-393q-45 0-76.5-31.5T372-501q0-45 31.5-76.5T480-609q45 0 76.5 31.5T588-501q0 45-31.5 76.5T480-393Zm0 193q-140 0-255-74T52-473q-2-5-3.5-12.5T47-501q0-8 1.5-15.5T52-529q58-125 173.312-198Q340.623-800 480-800q139.377 0 254.688 73Q850-654 908-529q2 5 3.5 12.5T913-501q0 8-1.5 15.5T908-473q-58 125-173 199t-255 74Zm0-301Zm-.183 217Q592-284 685.5-342.5 779-401 828-501q-49-100-142.589-157.5t-205.5-57.5Q368-716 274-658.5T131-501q49 100 142.817 158.5 93.817 58.5 206 58.5Z" />
+          </svg>
+        </div>
+        <div *ngIf="!layer.visible">
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
+            <path
+              d="m649-431-61-61q4-48-31-85t-86-32l-61-61q17-6 34.5-9.5T480-683q76 0 129 53t53 129q0 20-3.5 38t-9.5 32Zm127 126-60-59q36-28 64-61t48-76q-49-100-142-157.5T480-716q-29 0-53.5 3.5T378-702l-66-66q41-17 82-24.5t86-7.5q143 0 257 74.5T908-529q2 5 3.5 12.5T913-501q0 8-1.5 15.5T908-473q-23 50-56.5 92.5T776-305ZM758-85 621-221q-35 11-70 16t-71 5q-143 0-257-75.5T52-473q-2-6-3.5-13T47-501q0-8 1-15.5t4-12.5q20-43 48.5-80.5T164-678l-80-81q-12-12-12.5-29.5T84-818q12-12 29.5-12t29.5 12l674 675q12 12 12 29t-12 29q-12 12-29.5 12T758-85ZM221-621q-28 26-51 55.5T131-501q49 100 142 158.5T480-284q17 0 35.5-1.5T551-291l-32-32q-9 2-19 3t-20 1q-76 0-129-53t-53-129q0-10 1.5-19t3.5-19l-82-82Zm325 87Zm-160 78Z" />
+          </svg>
+        </div>
+      </button>
+    </div>
   </p-tabPanel>
 </p-tabView>
-<div
-  class="panel-close"
-  (click)="toogle = !toogle"
-  [ngClass]="{ 'panel-close-side2': toogle }"
->
-  {{ toogle ? "X" : ">" }}
+<div class="panel-close" (click)="toogle = !toogle" [ngClass]="{ 'panel-close-side2': toogle }">
+  <ng-container *ngIf="toogle">
+    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
+      <path
+        d="M480-429 316-265q-11 11-25 10.5T266-266q-11-11-11-25.5t11-25.5l163-163-164-164q-11-11-10.5-25.5T266-695q11-11 25.5-11t25.5 11l163 164 164-164q11-11 25.5-11t25.5 11q11 11 11 25.5T695-644L531-480l164 164q11 11 11 25t-11 25q-11 11-25.5 11T644-266L480-429Z" />
+    </svg>
+  </ng-container>
+  <ng-container *ngIf="!toogle">
+    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
+      <path
+        d="M522-480 358-644q-11-11-11-25.5t11-25.5q11-11 25.5-11t25.838 11.338L599-505q5 5.4 7.5 11.7 2.5 6.3 2.5 13.5t-2.5 13.5Q604-460 599-455L409.338-265.338Q398-254 384-254.5q-14-.5-25-11.5t-11-25.5q0-14.5 11-25.5l163-163Z" />
+    </svg>
+  </ng-container>
 </div>
