@@ -1,167 +1,160 @@
-@import 'https://js.arcgis.com/4.27/esri/themes/light/main.css';
+@import "https://js.arcgis.com/4.27/esri/themes/light/main.css";
 .esri-view {
-	padding: 0;
-	margin: 0;
-	height: 93%;
-	width: 100%;
-	z-index: -1;
+  padding: 0;
+  margin: 0;
+  height: 93.2%;
+  width: 100%;
+  z-index: -1;
 }
-
 #mapViewNode {
-	padding: 0;
-	margin: 0;
-	height: 100%;
-	width: 100%;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
 }
 html,
 body,
 #sceneDiv {
-	position: relative;
-	/* height: 100%; */
-	/* width: 100%; */
-	margin: 0;
-	padding: 0;
+  position: relative;
+  /* height: 100%; */
+  /* width: 100%; */
+  margin: 0;
+  padding: 0;
 }
-.panel-container {
-	/* position: relative; */
-	/* width: 100%; */
-	/* height: 100%; */
-}
-
 .panel-side h3 {
-	padding: 0 20px;
-	margin: 20px 0;
+  padding: 0 20px;
+  margin: 20px 0;
 }
 .panel-side ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 .panel-side li {
-	list-style: none;
-	padding: 10px 20px;
+  list-style: none;
+  padding: 10px 20px;
 }
 .panel-result {
-	cursor: pointer;
-	margin: 2px 0;
-	background-color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  margin: 2px 0;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 .panel-result:hover,
 .panel-result:focus {
-	color: orange;
-	background-color: rgba(0, 0, 0, 0.75);
+  color: orange;
+  background-color: rgba(0, 0, 0, 0.75);
 }
 /* new */
 .panel-side2.hidden-side2 {
-	left: -300px;
+  left: -300px;
 }
 .panel-close.panel-close-side2 {
-	left: 300px;
+  left: 300px;
 }
 .panel-close {
-	border: 1px solid #dee2e6;
-	cursor: pointer;
-	box-sizing: border-box;
-	padding: 2px;
-	padding-top: 4px;
-	box-sizing: border-box;
-	text-align: center;
-	width: 30px;
-	height: 30px;
-	/*height: 100%;
+  border: 1px solid #dee2e6;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 2px;
+  padding-top: 4px;
+  box-sizing: border-box;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  /*height: 100%;
 	*/
-	left: 0;
-	position: absolute;
-	top: 70px;
-	color: #000000;
-	background-color: #f8f9fa;
-	z-index: 1;
-	border-top-right-radius: 8px;
-	border-bottom-right-radius: 8px;
-	transition: left 0.3s ease-out;
-	-webkit-transition: left 0.3s ease-out;
-	-moz-transition: left 0.3s ease-out;
-	-ms-transition: left 0.3s ease-out;
-	-o-transition: left 0.3s ease-out;
+  left: 0;
+  position: absolute;
+  top: 70px;
+  color: #000000;
+  background-color: #f8f9fa;
+  z-index: 1;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  transition: left 0.3s ease-out;
+  -webkit-transition: left 0.3s ease-out;
+  -moz-transition: left 0.3s ease-out;
+  -ms-transition: left 0.3s ease-out;
+  -o-transition: left 0.3s ease-out;
 }
 .panel-close:hover {
-	border: 1px solid #71a9d9;
-	background-color: #e5f3ff;
+  border: 1px solid #71a9d9;
+  background-color: #e5f3ff;
 }
 .panel-side2 {
-	box-sizing: border-box;
-	padding: 2px;
-	margin-left: 0px;
-	box-sizing: border-box;
-	width: 300px;
-	height: calc(100% - 56px);
-	/*height: 100%;
+  box-sizing: border-box;
+  padding: 2px;
+  margin-left: 0px;
+  box-sizing: border-box;
+  width: 300px;
+  height: calc(100% - 56px);
+  /*height: 100%;
 	*/
-	position: absolute;
-	top: 65px;
-	left: 0;
-	color: #fff;
-	background-color: rgb(255, 255, 255);
-	overflow: initial;
-	z-index: 0;
-	transition: left 0.3s ease-out;
-	-webkit-transition: left 0.3s ease-out;
-	-moz-transition: left 0.3s ease-out;
-	-ms-transition: left 0.3s ease-out;
-	-o-transition: left 0.3s ease-out;
+  position: absolute;
+  top: 65px;
+  left: 0;
+  color: #fff;
+  background-color: rgb(255, 255, 255);
+  overflow: initial;
+  z-index: 0;
+  transition: left 0.3s ease-out;
+  -webkit-transition: left 0.3s ease-out;
+  -moz-transition: left 0.3s ease-out;
+  -ms-transition: left 0.3s ease-out;
+  -o-transition: left 0.3s ease-out;
 }
 .panel-side23 {
-	height: 100%;
-	overflow-y: auto;
+  height: 100%;
+  overflow-y: auto;
 }
 .panel-side2 h3 {
-	padding: 0 20px;
-	margin: 20px 0;
+  padding: 0 20px;
+  margin: 20px 0;
 }
 .panel-side2 ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 .panel-side2 li {
-	list-style: none;
-	padding: 10px 20px;
+  list-style: none;
+  padding: 10px 20px;
 }
 
 .panel-result2 {
-	border: 1px solid transparent;
-	box-sizing: border-box;
-	cursor: pointer;
-	padding: 2px 4px;
-	/* background-color: rgba(0, 0, 0, 0.3); */
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 2px 4px;
+  /* background-color: rgba(0, 0, 0, 0.3); */
 }
 
 .panel-result2:hover,
 .panel-result2:focus {
-	border: 1px solid #71a9d9;
-	background-color: #e5f3ff;
+  border: 1px solid #71a9d9;
+  background-color: #e5f3ff;
 }
 .panel-result2:target {
-	border: 1px solid #71a9d9;
-	background-color: #c7e5ff;
+  border: 1px solid #71a9d9;
+  background-color: #c7e5ff;
 }
 .textView {
-	font-size: small;
-	color: black;
+  font-size: small;
+  color: black;
 }
 .bottonCapa {
-	border: 1px solid transparent;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	width: 100%;
-	padding: 4px;
-	align-items: center;
-	background: white;
-	cursor: pointer;
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: 4px;
+  align-items: center;
+  background: white;
+  cursor: pointer;
 }
 .bottonCapa:hover,
 .bottonCapa:focus {
-	border: 1px solid #71a9d9;
-	background-color: #e5f3ff;
+  border: 1px solid #71a9d9;
+  background-color: #e5f3ff;
 }
