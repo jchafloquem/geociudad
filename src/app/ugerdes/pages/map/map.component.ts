@@ -148,7 +148,6 @@ export class MapComponent implements OnInit, OnDestroy {
 	@ViewChild('mapViewNode', {static: true}) private mapViewEl!: ElementRef;
 	initializeMap(): Promise<any> {
 		const container = this.mapViewEl.nativeElement;
-
 		this.layers.forEach((layerConfig) => {
 			let featureLayer;
 			if (layerConfig.popupTemplate == undefined) {

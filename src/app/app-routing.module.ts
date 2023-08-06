@@ -12,7 +12,7 @@ const routes: Routes = [
     path: 'ugerdes',
     loadChildren: () => import('./ugerdes/ugerdes.module').then(m => m.UgerdesModule)
   },
-  { path: '404', component: Error404Component },
+  
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
   { path: '**', redirectTo: '404' }
 ];
